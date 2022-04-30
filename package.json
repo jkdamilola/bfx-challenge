@@ -1,0 +1,25 @@
+{
+  "name": "bfx-challenge",
+  "version": "1.0.0",
+  "description": "The BFX technical challenge",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jkdamilola/bfx-challenge.git"
+  },
+  "author": "Jimoh Damilola",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jkdamilola/bfx-challenge/issues"
+  },
+  "homepage": "https://github.com/jkdamilola/bfx-challenge#readme",
+  "dependencies": {
+    "grenache-nodejs-http": "^0.7.12",
+    "grenache-nodejs-link": "^0.7.12",
+    "ulid": "^2.3.0"
+  }
+}
