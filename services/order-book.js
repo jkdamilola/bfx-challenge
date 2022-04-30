@@ -121,9 +121,7 @@ class OrderBook {
         if (matched.order.amount > this.orders[index].amount) {
             this.orders[matched.index] = {
                 ...this.orders[matched.index],
-                amount:
-                    this.orders[matched.index].amount -
-                    this.orders[index].amount,
+                amount: this.orders[matched.index].amount - this.orders[index].amount,
                 isLocked: false,
                 lockedBy: null,
             };
@@ -137,9 +135,7 @@ class OrderBook {
         } else {
             this.orders[index] = {
                 ...this.orders[index],
-                amount:
-                    this.orders[index].amount -
-                    this.orders[matched.index].amount,
+                amount: this.orders[index].amount - this.orders[matched.index].amount,
                 isLocked: false,
                 lockedBy: null,
             };
