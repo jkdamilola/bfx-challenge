@@ -100,6 +100,7 @@ class OrderBook {
         if (matched.index === -1 || !matched.order) {
             console.log("No matched order found.");
             this.unlockOrderByIndex(index, order);
+            await this.sendMessage(Commands.UNLOCK_ORDER, order);
             return;
         }
 
@@ -194,7 +195,7 @@ class OrderBook {
             return;
         }
 
-        this.unlockOrder(index, order);
+        this.unlockOrderByIndex(index, order);
 
         console.log('unlockOrderByIndex', this.orders.length);
         
