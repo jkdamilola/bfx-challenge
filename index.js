@@ -74,6 +74,9 @@ service.on("request", async (rid, key, payload, handler) => {
                 handler.reply(null, { success: false });
             }
             break;
+        case Commands.UNLOCK_ORDER:
+            orderBookService.unlockOrder(data);
+            break;
         default:
             debug(`Unknown request type: ${key}`);
     }
