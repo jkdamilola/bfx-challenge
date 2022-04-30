@@ -1,4 +1,4 @@
-# bfx-challenge
+# BFX challenge
 The BFX technical challenge
 
 ## Getting Started
