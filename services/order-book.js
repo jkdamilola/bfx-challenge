@@ -56,17 +56,19 @@ class OrderBook {
     }
 
     getMatchedOrder(order) {
+        const type = order.type === Order.type.BUY ? Order.type.SELL : Order.type.BUY;
+        
         let matchedOrder = null;
         let matchedIndex = -1;
         let amountDiff = Number.POSITIVE_INFINITY;
 
         for (let index = 0; index < this.orders.length; index++) {
             const currentOrder = this.orders[index];
-            console.log(currentOrder.type, order.type, currentOrder.ownedBy, order.ownedBy, currentOrder.isLocked);
+            console.log(currentOrder.type, order.type, type, currentOrder.ownedBy, order.ownedBy, currentOrder.isLocked);
 
             /** Skip own orders */
             if (
-                currentOrder.type !== order.type ||
+                currentOrder.type !== type ||
                 currentOrder.ownedBy === order.ownedBy ||
                 currentOrder.isLocked
             ) {
