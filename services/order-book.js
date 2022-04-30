@@ -61,7 +61,7 @@ class OrderBook {
         let amountDiff = Number.POSITIVE_INFINITY;
 
         for (let index = 0; index < this.orders.length; index++) {
-            var currentOrder = this.orders[index];
+            const currentOrder = this.orders[index];
             console.log(currentOrder.type, order.type, currentOrder.ownedBy, order.ownedBy, currentOrder.isLocked);
 
             /** Skip own orders */
@@ -73,7 +73,7 @@ class OrderBook {
                 continue;
             }
 
-            var newAmountDiff = Math.abs(order.amount - currentOrder.amount);
+            const newAmountDiff = Math.abs(order.amount - currentOrder.amount);
             if (newAmountDiff < amountDiff) {
                 amountDiff = newAmountDiff;
                 matchedOrder = currentOrder;
@@ -153,7 +153,7 @@ class OrderBook {
 
         await this.sendMessage(Commands.UPDATE_ORDER, payload);
 
-        console.log("All orders are, ", this.orders.length);
+        console.log("All orders are: ", this.orders.length);
     }
 
     updateOrder(order) {
@@ -167,7 +167,7 @@ class OrderBook {
             ...order,
         };
 
-        console.log("All orders are, ", this.orders.length);
+        console.log("All orders are: ", this.orders.length);
     }
 
     deleteOrder(order) {
