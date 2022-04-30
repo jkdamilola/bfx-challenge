@@ -107,6 +107,7 @@ const createNewOrderAtInterval = async () => {
             link.announce(Commands.PUBLISH_ORDER, service.port, {});
             link.announce(Commands.SYNC_ORDERS, service.port, {});
             link.announce(Commands.LOCK_ORDER, service.port, {});
+            link.announce(Commands.UNLOCK_ORDER, service.port, {});
         }, 1000);
 
         await orderBookService.syncOrders();
