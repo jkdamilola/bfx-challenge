@@ -109,12 +109,12 @@ class OrderBook {
 
         const payload = {
             order: {
-                original: this.orders[index],
-                updated: this.orders,
+                original: order,
+                updated: undefined,
             },
             matched: {
-                original: this.orders[matched.index],
-                updated: matched.order,
+                original: matched.order,
+                updated: undefined,
             },
         };
 
@@ -130,13 +130,10 @@ class OrderBook {
 
             this.deleteOrderByIndex(index);
 
-            payload.order.updated = undefined;
+            payload.matched.updated = this.orders[matched.index];
         } else if (matched.order.amount === this.orders[index].amount) {
             this.deleteOrderByIndex(index);
             this.deleteOrderByIndex(matched.index);
-
-            payload.order.updated = undefined;
-            payload.matched.updated = undefined;
         } else {
             this.orders[index] = {
                 ...this.orders[index],
@@ -148,7 +145,8 @@ class OrderBook {
             };
 
             this.deleteOrderByIndex(matched.index);
-            payload.matched.updated = undefined;
+
+            payload.order.updated = this.orders[index];
         }
 
         await this.sendMessage(Commands.UPDATE_ORDER, payload);
